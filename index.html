@@ -3,53 +3,245 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Volt Budget - Suivi de dépenses</title>
+    <title>Volt Budget - Gérez vos finances simplement</title>
     <style>
+        /* --- Styles Généraux --- */
+        :root {
+            --primary-color: #2c3e50; /* Bleu nuit */
+            --secondary-color: #3498db; /* Bleu clair */
+            --accent-color: #2ecc71; /* Vert */
+            --text-color: #333;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --footer-bg: #222;
+        }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             margin: 0;
-            background-color: #f0f2f5;
-            text-align: center;
-            color: #333;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
         }
         .container {
-            padding: 40px;
-            background-color: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 0.5em;
+        h1, h2, h3 {
+            color: var(--primary-color);
+            font-weight: 700;
         }
-        p {
-            font-size: 1.2em;
-            margin-bottom: 1.5em;
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid #e0e0e0;
         }
-        a {
-            display: inline-block;
-            padding: 12px 24px;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        /* --- Navbar --- */
+        .navbar {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
             font-weight: bold;
-            transition: background-color 0.3s;
+            color: var(--primary-color);
+            text-decoration: none;
         }
-        a:hover {
-            background-color: #0056b3;
+        .nav-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .nav-links li {
+            margin-left: 20px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .nav-links a.active, .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        /* --- Section Hero --- */
+        .hero {
+            background-color: var(--bg-color);
+            text-align: center;
+            padding: 100px 0;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            color: #555;
+        }
+        .cta-buttons a {
+            text-decoration: none;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 8px;
+            margin: 0 10px;
+            font-weight: bold;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: inline-block;
+        }
+        .cta-primary { background-color: var(--secondary-color); }
+        .cta-buttons a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* --- Section Fonctionnalités --- */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .feature-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        .feature-card i {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        /* --- Footer --- */
+        .footer {
+            background: var(--footer-bg);
+            color: #ccc;
+            padding: 40px 0;
+            text-align: center;
+        }
+        .footer .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .footer p {
+            margin: 0;
+        }
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .nav-links { display: none; } /* Pour un menu burger si nécessaire */
+            .footer .container {
+                flex-direction: column;
+            }
+            .footer p {
+                margin-bottom: 10px;
+            }
         }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Volt Budget</h1>
-        <p>L'application simple pour le suivi de vos dépenses.</p>
-        <a href="https://play.google.com/store/apps/details?id=com.f2dev.budget.f2_budget">Télécharger sur le Google Play Store</a>
-    </div>
+
+    <header class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">Volt Budget</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Accueil</a></li>
+                    <li><a href="privacy.html">Politique de Confidentialité</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Reprenez le contrôle de vos finances.</h1>
+                <p>Volt Budget est l'application simple et puissante pour suivre vos dépenses, créer vos budgets et atteindre vos objectifs financiers sans effort.</p>
+                <div class="cta-buttons">
+                    <a href="#" class="cta-primary"><i class="fa-brands fa-apple"></i> Télécharger sur l'App Store</a>
+                    </div>
+            </div>
+        </section>
+
+        <section id="features" class="container">
+            <h2 style="text-align: center;">Une gestion de budget qui a du sens.</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fa-solid fa-chart-pie"></i>
+                    <h3>Vue d'Ensemble Claire</h3>
+                    <p>Centralisez tous vos comptes pour une vision globale et en temps réel de votre patrimoine financier.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-bullseye"></i>
+                    <h3>Budgets Personnalisés</h3>
+                    <p>Créez des budgets mensuels, hebdomadaires ou personnalisés pour maîtriser vos dépenses et ne plus jamais être pris au dépourvu.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-right-left"></i>
+                    <h3>Transferts Intelligents</h3>
+                    <p>Effectuez des transferts entre vos comptes qui sont réellement liés. Une modification ou suppression met à jour les deux côtés de l'opération.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="cta" style="background-color: var(--primary-color); color: white; text-align: center;">
+            <div class="container">
+                <h2 style="color: white;">Prêt à transformer vos finances ?</h2>
+                <p>Téléchargez Volt Budget aujourd'hui et faites le premier pas vers une meilleure santé financière.</p>
+                <div class="cta-buttons" style="margin-top: 20px;">
+                    <a href="#" style="background-color: white; color: var(--primary-color);"><i class="fa-brands fa-apple"></i> App Store</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Volt Budget. Tous droits réservés.</p>
+            <div class="footer-links">
+                <a href="privacy.html">Politique de Confidentialité</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </footer>
+
 </body>
 </html>
