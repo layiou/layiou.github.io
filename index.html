@@ -7,56 +7,170 @@
     <link rel="icon" type="image/png" href="images/logo.png">
     <style>
         :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
+            --primary-color: #2c3e50; /* Bleu nuit */
+            --secondary-color: #3498db; /* Bleu clair */
             --text-color: #333;
             --bg-color: #f8f9fa;
             --card-bg: #ffffff;
             --footer-bg: #222;
         }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; padding: 0; background-color: var(--bg-color); color: var(--text-color); line-height: 1.6; }
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-        h1, h2, h3 { color: var(--primary-color); font-weight: 700; }
-        section { padding: 60px 0; border-bottom: 1px solid #e0e0e0; }
-        section:last-of-type { border-bottom: none; }
-        .navbar { background-color: var(--card-bg); box-shadow: 0 2px 4px rgba(0,0,0,0.05); padding: 1rem 0; position: sticky; top: 0; z-index: 1000; }
-        .navbar .container { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary-color); text-decoration: none; display: flex; align-items: center; }
-        .logo img { height: 30px; margin-right: 10px; }
-        .nav-links { list-style: none; margin: 0; padding: 0; display: flex; }
-        .nav-links li { margin-left: 20px; }
-        .nav-links a { text-decoration: none; color: var(--primary-color); font-weight: 500; transition: color 0.3s ease; }
-        .nav-links a.active, .nav-links a:hover { color: var(--secondary-color); }
-        .hero { text-align: center; padding: 100px 0; }
-        .hero h1 { font-size: 3rem; margin-bottom: 20px; }
-        .hero p { font-size: 1.2rem; max-width: 600px; margin: 0 auto 30px; color: #555; }
-        .cta-buttons a { text-decoration: none; color: white; padding: 15px 30px; border-radius: 8px; margin: 0 10px; font-weight: bold; transition: transform 0.2s ease, box-shadow 0.2s ease; display: inline-block; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        h1, h2, h3 {
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        section:last-of-type {
+            border-bottom: none;
+        }
+        .navbar {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        .logo img { 
+            height: 30px; 
+            margin-right: 10px; 
+        }
+        .nav-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .nav-links li {
+            margin-left: 20px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .nav-links a.active, .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+        .hero {
+            text-align: center;
+            padding: 100px 0;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            color: #555;
+        }
+        .cta-buttons a {
+            text-decoration: none;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 8px;
+            margin: 0 10px;
+            font-weight: bold;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: inline-block;
+        }
         .cta-primary { background-color: var(--secondary-color); }
-        .cta-buttons a:hover { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
-        .feature-card { background: var(--card-bg); padding: 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); text-align: center; }
-        .feature-card i { font-size: 2.5rem; color: var(--secondary-color); margin-bottom: 20px; }
-        .feature-card h3 { font-size: 1.3rem; margin-bottom: 10px; }
-        
-        /* --- Galerie de captures d'écran --- */
+        .cta-buttons a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .feature-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        .feature-card i {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
         .screenshot-gallery { display: flex; overflow-x: auto; padding: 20px 0; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
         .screenshot-gallery::-webkit-scrollbar { height: 8px; }
         .screenshot-gallery::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
         .screenshot-card { flex: 0 0 auto; width: 250px; margin-right: 20px; text-align: center; scroll-snap-align: center; }
         .screenshot-card img { width: 100%; border-radius: 20px; box-shadow: 0 8px 16px rgba(0,0,0,0.15); }
         .screenshot-card p { margin-top: 15px; font-weight: 500; color: var(--primary-color); }
-
-        .footer { background: var(--footer-bg); color: #ccc; padding: 40px 0; text-align: center; }
-        .footer .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
-        .footer p { margin: 0; }
-        .footer-links a { color: #ccc; text-decoration: none; margin: 0 10px; transition: color 0.3s ease; }
-        .footer-links a:hover { color: white; }
-
+        .footer {
+            background: var(--footer-bg);
+            color: #ccc;
+            padding: 40px 0;
+            text-align: center;
+        }
+        .footer .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .footer p {
+            margin: 0;
+        }
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        .footer-links a:hover {
+            color: white;
+        }
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
             .nav-links { display: none; }
-            .footer .container { flex-direction: column; }
-            .footer p { margin-bottom: 10px; }
+            .footer .container {
+                flex-direction: column;
+            }
+            .footer p {
+                margin-bottom: 10px;
+            }
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -66,7 +180,7 @@
     <header class="navbar">
         <div class="container">
             <a href="index.html" class="logo">
-                <img src="images/logo.png" alt="Logo Volt Budget">
+                <img src="images/logo.webp" alt="Logo Volt Budget">
                 Volt Budget
             </a>
             <nav>
@@ -99,19 +213,19 @@
                  </div>
                  <div class="screenshot-card">
                      <img src="images/comptes.png" alt="Capture d'écran des comptes">
-                     <p>Comptes</p>
+                     <p>Vue des comptes</p>
                  </div>
                  <div class="screenshot-card">
-                     <img src="images/rapports.png" alt="Capture d'écran des rapports">
+                     <img src="images/detail.png" alt="Capture d'écran du détail d'un compte">
+                     <p>Détail d'un compte</p>
+                 </div>
+                 <div class="screenshot-card">
+                     <img src="images/rapport.png" alt="Capture d'écran des rapports">
                      <p>Rapports</p>
                  </div>
                  <div class="screenshot-card">
-                     <img src="images/budgets.png" alt="Capture d'écran des budgets">
+                     <img src="images/budget.png" alt="Capture d'écran des budgets">
                      <p>Budgets</p>
-                 </div>
-                 <div class="screenshot-card">
-                     <img src="images/parametres.png" alt="Capture d'écran des paramètres">
-                     <p>Paramètres</p>
                  </div>
              </div>
         </section>

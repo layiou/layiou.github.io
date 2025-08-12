@@ -6,14 +6,7 @@
     <title>Contact - Volt Budget</title>
     <link rel="icon" type="image/png" href="images/logo.png">
     <style>
-        :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --text-color: #333;
-            --bg-color: #f8f9fa;
-            --card-bg: #ffffff;
-            --footer-bg: #222;
-        }
+        :root { --primary-color: #2c3e50; --secondary-color: #3498db; --text-color: #333; --bg-color: #f8f9fa; --card-bg: #ffffff; --footer-bg: #222; }
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; padding: 0; background-color: var(--bg-color); color: var(--text-color); line-height: 1.6; }
         .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
         .content { background: var(--card-bg); padding: 40px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
@@ -36,7 +29,6 @@
     </style>
 </head>
 <body>
-
     <header class="navbar">
         <div class="container-nav">
             <a href="index.html" class="logo">
@@ -52,39 +44,15 @@
             </nav>
         </div>
     </header>
-
     <div class="container">
         <div class="content">
             <h1>Contactez-nous</h1>
-            <p style="text-align: center; margin-bottom: 2em;">Une question, une suggestion ou un problème ? Nous sommes là pour vous aider. Utilisez le formulaire ci-dessous ou envoyez-nous un e-mail directement.</p>
-
-            <form action="#" method="POST" class="contact-form">
-                <div class="form-group">
-                    <label for="name">Votre nom</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Votre e-mail</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Votre message</label>
-                    <textarea id="message" name="message" rows="6" required></textarea>
-                </div>
-                <button type="submit">Envoyer le message</button>
-            </form>
-            <p style="text-align:center; font-size: 0.9em; color: #888; margin-top: 15px;">*Note : Ce formulaire est une démonstration. Pour que l'envoi fonctionne, une configuration côté serveur est nécessaire.</p>
-
+            <p style="text-align: center; margin-bottom: 2em;">Une question, une suggestion ou un problème ? Nous sommes là pour vous aider.</p>
             <div class="contact-alt">
-                <p>Vous pouvez également nous contacter directement par e-mail à l'adresse suivante :</p>
+                <p>Contactez-nous directement par e-mail à l'adresse suivante :</p>
                 <a href="mailto:f2ad.dev@gmail.com" style="font-weight: bold; color: var(--primary-color);">f2ad.dev@gmail.com</a>
             </div>
         </div>
     </div>
-    
-    <footer class="footer">
-        <p>&copy; 2025 Volt Budget. Tous droits réservés.</p>
-    </footer>
-
 </body>
 </html>
